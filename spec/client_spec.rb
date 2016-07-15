@@ -14,11 +14,22 @@ describe(Client) do
       expect(Client.all()).to(eq([test_client]))
     end
   end
+
   describe("#==") do
     it "is the same client if it has the the same info" do
       test_client = Client.new({:id => nil, :client_name => 'Mason', :stylist_id => 1})
       test_client2 = Client.new({:id => nil, :client_name => 'Mason', :stylist_id => 1})
       expect(test_client).to(eq(test_client2))
+    end
+  end
+
+  describe(".find") do
+    it "resturns a client's id" do
+      test_client = Client.new({:id => nil, :client_name => 'Mason', :stylist_id => 1})
+      test_client.save()
+      test_client2 = Client.new({:id => nil, :client_name => 'Zach', :stylist_id => 1})
+      test_client2.save()
+      expect(Client.find(test_client2.id())).to(eq(test_client2))
     end
   end
 
