@@ -36,4 +36,8 @@ class Stylist
     found_stylist
   end
 
+  # define_method(:clients) do
+  #
+  # end
+
 end

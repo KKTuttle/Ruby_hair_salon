@@ -1,8 +1,6 @@
 require('spec_helper')
 
-
 describe(Stylist) do
-
   describe(".all") do
     it "is empty at the beginning" do
       expect(Stylist.all()).to(eq([]))
@@ -51,4 +49,5 @@ describe(Stylist) do
     end
   end
 
+  # descibe("#clients")
 end
