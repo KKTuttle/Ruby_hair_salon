@@ -2,7 +2,7 @@ class Client
   attr_reader(:id, :client_name, :stylist_id)
 
   define_method(:initialize) do |attributes|
-    @id = attributes[:id].to_i()
+    @id = attributes[:id]
     @client_name =attributes[:client_name]
     @stylist_id = attributes[:stylist_id]
   end
@@ -19,6 +19,13 @@ class Client
     clients
   end
 
+  define_method(:save) do
+    result = DB.exec("INSERT INTO clients (client_name, stylist_id) VALUES ('#{@client_name}', #{@stylist_id}) RETURNING id;")
+    @id = result.first()['id'].to_i()
+  end
 
+  define_method(:==) do |another_client|
+    self.id().==(another_client.id()).&(self.client_name().==(another_client.client_name())).&(self.stylist_id().==(another_client.stylist_id()))
+  end
 
 end
