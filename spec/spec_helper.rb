@@ -1,12 +1,8 @@
-require('sinatra')
-require('sinatra-contrib')
-require('rspec')
-require('capybara')
 require('pry')
-require('pg')
-require('rspec')
-require('stylist')
-require('client')
+require("rspec")
+require("pg")
+require("stylist")
+require("client")
 
 DB = PG.connect({:dbname => 'hair_salon_test'})
 
