@@ -1,0 +1,16 @@
+<h2>Our Hairstylists</h2>
+<% if @stylists.any?() %>
+  <h3>Here are all our hairstylists:</h3>
+  <ul>
+    <% @stylists.each() do |stylist| %>
+      <li><a href="/stylists/<%stylist.id()%>"><%=stylist.name() %></a>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+    <p>There are not any hairstylist</p>
+
+
+<% end %>
+
+<a href="/">Return Home</a>
